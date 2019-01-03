@@ -5,14 +5,14 @@
                 <v-card-title >
                     <v-spacer></v-spacer>
                     <v-text-field
-                    v-model="search"
-                    append-icon="search"
-                    label="Buscar"
-                    single-line
-                    hide-details>
+                     v-model="search"
+                     append-icon="search"
+                     label="Buscar"
+                     single-line
+                     hide-details>
                     </v-text-field>
-                    </v-card-title>
-                <v-card class="cardIcons" v-for="(item, i) in headersIcons" :key="i">
+                </v-card-title>
+                <v-card class="cardIcons" v-for="(item, i) in headersIcons" :key="i" >
                     <v-card-title >
                         Material design Icons: {{item}}
                         <v-spacer></v-spacer>
@@ -26,7 +26,7 @@
                             <td>{{props.item.id}}</td>
                             <td><v-icon>{{props.item.id}}</v-icon></td>
                         </template>
-                        <v-alert slot="no-results" :value ="true" color="error" icon="warning">
+                        <v-alert slot="no-results" :value="true" color="error" icon="warning">
                             Sin resultados
                         </v-alert>
                     </v-data-table>
@@ -51,7 +51,7 @@ export default {
         }
     },
     computed:{
-
+       
     },
     methods:{
         getIcons(){
@@ -61,7 +61,10 @@ export default {
                     this.iconos.push(res[i].icons)
                 }
             })
-        }
+        },
+        nothasresults(i){
+            alert(i)
+        },
     },
     beforeMount(){
         this.getIcons();
